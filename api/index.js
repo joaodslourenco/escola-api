@@ -1,9 +1,10 @@
-import express, { json } from "express";
-import "dotenv/config";
+const express = require("express");
+const dotenv = require("dotenv");
 
+dotenv.config();
 const app = express();
 
-app.use(json());
+app.use(express.json());
 
 app.get("/test", (req, res) => {
   return res.status(200).send({ message: "Bem vindo!" });

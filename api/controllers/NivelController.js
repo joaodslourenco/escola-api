@@ -1,4 +1,6 @@
-class TurmaController {
+const database = require("../models");
+
+class NivelController {
   static async getAllSchoolLevels(req, res) {
     try {
       const allSchoolLevels = await database.Niveis.findAll();
@@ -68,3 +70,5 @@ class TurmaController {
     }
   }
 }
+
+module.exports = NivelController;

@@ -1,3 +1,5 @@
+const database = require("../models");
+
 class TurmaController {
   static async getAllSchoolClasses(req, res) {
     try {
@@ -68,3 +70,5 @@ class TurmaController {
     }
   }
 }
+
+module.exports = TurmaController;

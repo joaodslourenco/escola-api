@@ -15,6 +15,10 @@ router.post(
   PessoaController.addRegistration,
 );
 router.put("/pessoas/:id", PessoaController.updatePerson);
+router.put(
+  "/pessoas/:estudanteId/matricula/:matriculaId",
+  PessoaController.updateRegistration,
+);
 router.delete("/pessoas/:id", PessoaController.deletePerson);
 
 module.exports = router;

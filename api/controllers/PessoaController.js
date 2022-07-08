@@ -122,16 +122,17 @@ class PessoaController {
   }
 
   static async deleteRegistration(req, res) {
-    const { id } = req.params;
+    const { matriculaId } = req.params;
+
     try {
-      await database.Pessoas.destroy({
+      await database.Matriculas.destroy({
         where: {
-          id: Number(id),
+          id: Number(matriculaId),
         },
       });
       return res
         .status(200)
-        .json({ message: `Pessoa ID ${id} deletada com sucesso.` });
+        .json({ message: `Matrícula ID ${matriculaId} deletada com sucesso.` });
     } catch (error) {
       return res.status(500).json(error.message);
     }

@@ -2,7 +2,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.addColumn("Matriculas", "deletedAt", {
-      allowNull: false,
+      allowNull: true,
       type: Sequelize.DATE,
     });
   },

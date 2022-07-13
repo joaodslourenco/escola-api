@@ -69,6 +69,22 @@ class NivelController {
       return res.status(500).json(error.message);
     }
   }
+
+  static async restoreSchoolLevel(req, res) {
+    const { id } = req.params;
+    try {
+      await database.Niveis.restore({
+        where: {
+          id: Number(id),
+        },
+      });
+      return res
+        .status(200)
+        .json({ message: `ID ${id} restaurado com sucesso.` });
+    } catch (error) {
+      return res.status(500).json(error.message);
+    }
+  }
 }
 
 module.exports = NivelController;

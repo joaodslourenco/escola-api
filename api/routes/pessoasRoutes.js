@@ -12,6 +12,10 @@ router.delete("/pessoas/:id", PessoaController.deletePerson);
 router.post("/pessoas/:id/restaura", PessoaController.restorePerson);
 
 router.get(
+  "/pessoas/:estudanteId/matricula",
+  PessoaController.getRegistrations,
+);
+router.get(
   "/pessoas/:estudanteId/matricula/:matriculaId",
   PessoaController.getRegistrationById,
 );

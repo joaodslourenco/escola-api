@@ -10,6 +10,10 @@ router.post("/pessoas", PessoaController.addPerson);
 router.put("/pessoas/:id", PessoaController.updatePerson);
 router.delete("/pessoas/:id", PessoaController.deletePerson);
 router.post("/pessoas/:id/restaura", PessoaController.restorePerson);
+router.get(
+  "/pessoas/matricula/:turmaId/confirmadas",
+  PessoaController.getRegistrationsByClass,
+);
 
 router.get(
   "/pessoas/:estudanteId/matricula",

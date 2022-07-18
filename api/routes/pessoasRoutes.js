@@ -3,8 +3,8 @@ const PessoaController = require("../controllers/PessoaController");
 
 const router = Router();
 
-router.get("/pessoas", PessoaController.getAllActivePeople);
-router.get("/pessoas/todos", PessoaController.getAllPeople);
+router.get("/pessoas", PessoaController.getAllPeople);
+router.get("/pessoas/ativas", PessoaController.getAllActivePeople);
 router.get("/pessoas/:id", PessoaController.getPersonById);
 router.get(
   "/pessoas/matricula/:turmaId/confirmadas",

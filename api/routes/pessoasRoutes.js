@@ -14,6 +14,7 @@ router.get(
   "/pessoas/matricula/:turmaId/confirmadas",
   PessoaController.getRegistrationsByClass,
 );
+router.get("/pessoas/matricula/lotada", PessoaController.getFullClasses);
 
 router.get(
   "/pessoas/:estudanteId/matricula",

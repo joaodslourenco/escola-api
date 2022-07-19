@@ -14,11 +14,7 @@ class NivelController {
   static async getSchoolLevelById(req, res) {
     try {
       const { id } = req.params;
-      const schoolLevel = await database.Niveis.findOne({
-        where: {
-          id: Number(id),
-        },
-      });
+      const schoolLevel = await niveisServices.getOneRecord({ id });
       return res.status(200).json(schoolLevel);
     } catch (error) {
       return res.status(500).json(error.message);
@@ -28,7 +24,9 @@ class NivelController {
   static async addSchoolLevel(req, res) {
     const newSchoolLevel = req.body;
     try {
-      const newSchoolLevelAdded = await database.Niveis.create(newSchoolLevel);
+      const newSchoolLevelAdded = await niveisServices.createRecord(
+        newSchoolLevel,
+      );
       return res.status(201).json(newSchoolLevelAdded);
     } catch (error) {
       return res.status(500).json(error.message);
@@ -39,17 +37,10 @@ class NivelController {
     const { id } = req.params;
     const newInfo = req.body;
     try {
-      await database.Niveis.update(newInfo, {
-        where: {
-          id: Number(id),
-        },
-      });
-      const updatedSchoolLevel = await database.Niveis.findOne({
-        where: {
-          id: Number(id),
-        },
-      });
-      return res.status(200).json(updatedSchoolLevel);
+      await niveisServices.updateRecord(newInfo, id);
+      return res
+        .status(200)
+        .json({ message: `Nível ID ${id} atualizado com sucesso.` });
     } catch (error) {
       return res.status(500).json(error.message);
     }
@@ -58,11 +49,7 @@ class NivelController {
   static async deleteSchoolLevel(req, res) {
     const { id } = req.params;
     try {
-      await database.Niveis.destroy({
-        where: {
-          id: Number(id),
-        },
-      });
+      await niveisServices.deleteRecord(id);
       return res
         .status(200)
         .json({ message: `Nível ID ${id} deletada com sucesso.` });
@@ -74,11 +61,7 @@ class NivelController {
   static async restoreSchoolLevel(req, res) {
     const { id } = req.params;
     try {
-      await database.Niveis.restore({
-        where: {
-          id: Number(id),
-        },
-      });
+      await niveisServices.restoreRecord(id);
       return res
         .status(200)
         .json({ message: `ID ${id} restaurado com sucesso.` });

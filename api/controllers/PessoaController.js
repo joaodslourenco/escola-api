@@ -1,8 +1,5 @@
 const { PessoasServices } = require("../services");
 const pessoasServices = new PessoasServices();
-const database = require("../models");
-const pessoas = require("../models/pessoas");
-
 class PessoaController {
   static async getAllActivePeople(req, res) {
     try {

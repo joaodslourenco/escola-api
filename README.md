@@ -6,10 +6,13 @@ API para administração de escola
 
 # ⚙️ Funcionalidades
 
-- Cadastro, consulta, atualização e remoção de pessoas;
-- Cadastro, consulta, atualização e remoção de turmas;
-- Cadastro, consulta, atualização e remoção de matrículas;
-- Cadastro, consulta, atualização e remoção de níveis;
+- Cadastro, consulta, atualização e remoção de pessoas, turmas, matrículas e níveis;
+- Consulta de matrículas por turma;
+- Consulta de turmas lotadas;
+- Consulta de matrículas por estudante;
+- Possibilidade de cancelamento de estudante (modifica status para inativo e cancela todas as matrículas vinculadas);
+- Remoção de pessoa sem perda do registro no banco (paranoid) e possibilidade de restauração;
+
 
 # 🛠️ Tecnologias utilizadas
 
@@ -52,6 +55,11 @@ OU
 ```bash
 npm run dev
 ```
+
+## Diagrama relacional
+
+![Captura de tela 2022-08-04 094426](https://user-images.githubusercontent.com/90736469/182850419-e8924024-f56c-46a6-ba41-8ebc02ac4b20.png)
+
 
 ## Rotas da API
 
